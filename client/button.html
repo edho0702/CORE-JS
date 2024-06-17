@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Size Control</title>
+    <style>
+        #myText {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="myText">Hello, World!</h1>
+    <button onclick="increaseFontSize('myText', 2)">Increase Font Size</button>
+    <button onclick="decreaseFontSize('myText', 2)">Decrease Font Size</button>
+    <script>
+        function increaseFontSize(elementld, step) {
+            const element = document.getElementById(elementld);
+            const currentSize = window.getComputedStyle(element).fontSize
+            const newSize = parseFloat(currentSize) + step;
+            element.style.fontSize = newSize + 'px';
+        }
+        function decreaseFontSize(elementld, step) {
+            const element = document.getElementById(elementld);
+            const currentSize = window.getComputedStyle(element).fontSize
+            const newSize = parseFloat(currentSize) - step;
+            element.style.fontSize = newSize + 'px';
+        }
+    </script>
+</body>
+
+</html>

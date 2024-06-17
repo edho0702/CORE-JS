@@ -13,3 +13,5 @@
 - [ ] Code Structure [바로가기](https://www.naver.com)
 - [ ] Variable [바로가기](https://www.naver.com)
 - [ ] Strict Mode [바로가기](https://www.naver.com)
+
+> > > 쉬는 시간입니다. 10분 뒤 정각에 뵙겠습니다
