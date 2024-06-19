@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <title>범쌤과 함께하는 자바스크립트</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/tiger.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <script>
+    function getNode(node, context = document) {
+
+
+      if (context.nodeType !== 9) context = document.querySelector(context);
+
+      return context.querySelector(node);
+    }
+
+
+    function getNodes(node, context = document) {
+
+      if (context.nodeType !== 9) context = document.querySelector(context);
+      return context.querySelectorAll(node);
+    }
+
+    const ground = getNode('.ground');
+    const ball = getNode('#ball');
+
+    // addEventListener
+
+    function handleClickBall(e) {
+      let x = e.offsetX;
+      let y = e.offsetY;
+
+      ball.style.transform = `translate(${x - 20}px,${y - 20}px)`;
+    }
+
+    ground.addEventListener('click', handleClickBall);
+
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .ground {
+      width: 400px;
+      height: 300px;
+      border: 5px solid black;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #66cd7b;
+    }
+
+    #ball {
+      transition: all 0.3s;
+      pointer-events: none;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="ground">
+    <img src="https://en.js.cx/clipart/ball.svg" id="ball" alt="축구공">
+  </div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

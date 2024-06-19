@@ -1,12 +1,11 @@
-/* ------------------------------------------ */
-/*              class                         */
-/* ------------------------------------------ */
+/* -------------------------------------------- */
+/*                     class                    */
+/* -------------------------------------------- */
 
-function addClass(node, className) {
+function addClass(node, ...className) {
   if (typeof node === 'string') node = document.querySelector(node);
 
   if (isArray(className)) {
-    console.log(className);
     className.forEach((c) => node.classList.add(c));
     return;
   }
@@ -48,11 +47,9 @@ function toggleClass(node, className) {
   return node.classList.toggle(className);
 }
 
-toggleClass('.first', 'hello');
-
-/* ------------------------------------------ */
-/*              style                         */
-/* ------------------------------------------ */
+/* -------------------------------------------- */
+/*                     style                    */
+/* -------------------------------------------- */
 
 function getStyle(node, prop) {
   if (isString(node)) node = getNode(node);
