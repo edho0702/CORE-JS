@@ -63,7 +63,7 @@ function debounce(callback, limit = 500) {
 function throttle(callback, limit = 200) {
   let waiting = false;
 
-  return function (callback) {
+  return function (callback, ...args) {
     if (!waiting) {
       callback.call(this, ...args);
       waiting = true;
@@ -76,3 +76,13 @@ function throttle(callback, limit = 200) {
 }
 
 ground.addEventListener('mousemove', throttle(handleMove));
+
+/* addClass 사용법  */
+// addClass('.ground',['a','b','c'])
+// addClass('.ground','a','b','c')
+// addClass('.ground','a,b,c')
+// addClass('.ground',{a:'one',b:'two'})
+
+// const BIRTHDAY = '02.07.1992';
+
+// const age = someCode(BIRTHDAY);

@@ -103,3 +103,20 @@ function mult(a, b) {
 function dev(a, b) {
   return a / b;
 }
+
+// console.log(document.querySelectorAll('.home'));
+
+function User(name) {
+  this.name = name;
+  this.isAdmin = false;
+}
+
+let user = new User('보라');
+
+alert(user.name); // 보라
+alert(user.isAdmin); // false
+
+user = new User('동호');
+
+alert(user.name); // 보라
+alert(user.isAdmin); // false
