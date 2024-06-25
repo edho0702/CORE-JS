@@ -1,12 +1,28 @@
-import { addClass, removeClass } from './css.js';
-import { isString } from '../utils/type.js';
-import { getNode } from './getNode.js';
+import { getNode } from "./getNode.js";
+import { isString } from "../utils/type.js";
 
-export function showAlert(node, message, timeout = 1000) {
-  if (isString(node)) node = getNode(node);
 
-  addClass(node, 'is-active');
-  setTimeout(() => {
-    removeClass(node, 'is-active');
-  }, timeout);
+
+
+
+ function clearContents(node){
+
+  if(isString(node)) node = getNode(node);
+
+  if(node.nodeName === 'INPUT' || node.nodeName === 'TEXTAREA') {
+    node.value = ''
+    return;
+  }
+
+  node.textContent = ''
+  
 }
+
+export default clearContents
+
+
+
+
+
+
+
