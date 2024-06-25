@@ -1,13 +1,15 @@
 import data from './data/data.js';
 import {
-  addClass,
-  clearContents,
+  copy,
+  shake,
   getNode,
+  addClass,
+  showAlert,
   getRandom,
   insertLast,
-  isNumericString,
   removeClass,
-  showAlert,
+  clearContents,
+  isNumericString,
 } from './lib/index.js';
 
 // [phase-1]
@@ -24,6 +26,9 @@ import {
 
 // 4. pick 항목 랜더링하기
 
+// [phase-2]
+// 1. 아무 값도 입력 받지 못했을 때 예외처리 (콘솔 출력)
+
 const submit = getNode('#submit');
 const nameField = getNode('#nameField');
 const result = getNode('.result');
@@ -38,10 +43,16 @@ function handleSubmit(e) {
   if (!name || name.replace(/\s*/g, '') === '') {
     showAlert('.alert-error', '공백은 허용하지 않습니다.');
 
+    shake('#nameField').restart();
+
     return;
   }
+
   if (!isNumericString(name)) {
     showAlert('.alert-error', '제대로된 이름을 입력해 주세요.');
+
+    shake('#nameField').restart();
+
     return;
   }
 
@@ -49,7 +60,18 @@ function handleSubmit(e) {
   insertLast(result, pick);
 }
 
+function handleCopy() {
+  const text = result.textContent;
+
+  if (nameField.value) {
+    navigator.clipboard.writeText(text).then(() => {
+      showAlert('.alert-success', '클립보드 복사 완료!');
+    });
+  }
+}
+
 submit.addEventListener('click', handleSubmit);
+result.addEventListener('click', handleCopy);
 
 // 콜백함수사용예시
 // function 함수1(callback) {
