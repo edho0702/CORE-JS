@@ -7,6 +7,7 @@ import {
   changeColor,
   renderSpinner,
   renderUserCard,
+  renderEmptyCard,
 } from './lib/index.js';
 
 const ENDPOINT = 'https://jsonplaceholder.typicode.com/users';
@@ -31,10 +32,12 @@ async function renderUserList() {
   try {
     gsap.to('.loadingSpinner', {
       opacity: 0,
-      onComplate() {
+      onComplete() {
+        console.log(this);
         this._targets[0].remove();
       },
     });
+    // getNode('.loadingSpinner').remove()
 
     const response = await tiger.get(ENDPOINT);
 
@@ -54,6 +57,7 @@ async function renderUserList() {
     });
   } catch {
     console.error('에러가 발생했습니다!');
+    renderEmptyCard(userCardInner);
   }
 }
 
