@@ -85,14 +85,14 @@ const cancelButton = getNode('.cancel');
 const doneButton = getNode('.done');
 
 function handleCreate() {
-  gsap.to('.pop', { autoAlpha: 1 });
-  // createButton.classList.add('open');
+  // gsap.to('.pop',{autoAlpha:1})
+  createButton.classList.add('open');
 }
 
 function handleCancel(e) {
   e.stopPropagation();
-  gsap.to('.pop', { autoAlpha: 0 });
-  // createButton.classList.remove('open');
+  // gsap.to('.pop',{autoAlpha:0})
+  createButton.classList.remove('open');
 }
 
 function handleDone(e) {
