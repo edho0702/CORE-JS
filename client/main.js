@@ -1,16 +1,3 @@
-class Button extends HTMLElement {
-  constructor() {
-    super();
+const a = 'hello';
 
-    this.attachShadow({ mode: 'open' });
-
-    this.shadowRoot.innerHTML = `
-      <button>hello</button>`;
-  }
-
-  connectedCallback() {}
-
-  disconnectedCallback() {}
-}
-
-customElements.define('c-button', Button);
+console.log('안녕 웹브라우저!');
